@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../car/css/CarForm.module.css';
 
 const CarForm: React.FC = () => {
   const [name, setName] = useState('');
@@ -22,7 +23,7 @@ const CarForm: React.FC = () => {
     event.preventDefault();
 
     const carData = {
-      id:null,
+      id: null,
       name,
       brand,
       year: parseInt(year),
@@ -55,40 +56,42 @@ const CarForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nome:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-      </div>
-      <div>
-        <label>Marca:</label>
-        <select value={brand} onChange={(e) => setBrand(e.target.value)} required>
-          <option value="">Selecione uma marca</option>
-          {brands.map((brand) => (
-            <option key={brand.id} value={brand.name}>
-              {brand.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <label>Ano:</label>
-        <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required />
-      </div>
-      <div>
-        <label>Preço:</label>
-        <input type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} required />
-      </div>
-      <div>
-        <label>URL da Imagem:</label>
-        <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} required />
-      </div>
-      <div>
-        <label>Descrição:</label>
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
-      </div>
-      <button type="submit">Criar Carro</button>
-    </form>
+    <div className={styles.formContainer}>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Nome:</label>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        </div>
+        <div>
+          <label>Marca:</label>
+          <select value={brand} onChange={(e) => setBrand(e.target.value)} required>
+            <option value="">Selecione uma marca</option>
+            {brands.map((brand) => (
+              <option key={brand.id} value={brand.name}>
+                {brand.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label>Ano:</label>
+          <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required />
+        </div>
+        <div>
+          <label>Preço:</label>
+          <input type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} required />
+        </div>
+        <div>
+          <label>URL da Imagem:</label>
+          <input type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} required />
+        </div>
+        <div>
+          <label>Descrição:</label>
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
+        </div>
+        <button type="submit">Criar Carro</button>
+      </form>
+    </div>
   );
 };
 

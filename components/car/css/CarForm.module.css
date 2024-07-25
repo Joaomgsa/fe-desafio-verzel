@@ -1,0 +1,25 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura total da viewport */
+}
+
+.formContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaçamento entre os elementos do formulário */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.formContainer input,
+.formContainer textarea,
+.formContainer button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
