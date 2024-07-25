@@ -1,9 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import MenuHeader from "@/components/home/header";
-import CarCard from '@/components/car/CarCard';
-import styles from './CarList.module.css';
 import CarCatalog from '@/components/car/CarCatalog';
 
 async function getCarrosData() {
@@ -41,7 +38,6 @@ export default function Carros() {
 
   return (
     <>
-      <MenuHeader />
       <CarCatalog data={data} />
     </>
   );

@@ -1,8 +1,17 @@
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .carList {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px; 
+    gap: 8px; 
     list-style: none;
     padding: 0;
   }

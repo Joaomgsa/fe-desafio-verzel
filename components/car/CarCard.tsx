@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './CarCard.module.css';
+import styles from '../car/css/CarCard.module.css';
 
 
 interface CarCardProps {
@@ -20,6 +20,7 @@ const CarCard: React.FC<CarCardProps> = ({ name, brand, year, price, imgUrl, des
       <p>Ano: {year}</p>
       <p>Preço: R$ {price}</p>
       <p>Descrição: {description}</p>
+      <button className={styles.editButton}>Editar</button>
     </div>
   );
 };

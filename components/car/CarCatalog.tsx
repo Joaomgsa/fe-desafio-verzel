@@ -18,11 +18,11 @@ interface CarListSectionProps {
 const CarCatalog: React.FC<CarListSectionProps> = ({ data }) => {
   return (
     <section>
-      <div className='container'>
-        <h1>Catalogo de Carros Usados</h1>
+      <div className={styles.container}>
+        <h1>Escolha Seu próximo carro aqui</h1>
         <ul className={styles.carList}>
           {data.map((carro, index) => (
-            <li key={index} className={styles.carListItem}>
+            <li key={carro.name} className={styles.carListItem}>
               <CarCard
                 name={carro.name}
                 brand={carro.brand}
