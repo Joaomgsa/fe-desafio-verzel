@@ -9,7 +9,7 @@ export default function MenuHeader() {
         <>
             <header className="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between">
                 <Link href="/" className="text-lg font-bold flex items-center gap-2">
-                    <CarIcon className="w-6 h-6" /> {/* Ícone de Carro */}
+                    <CarIcon className="w-6 h-6" /> 
                     Verzel
                 </Link>
                 <NavLinks />
