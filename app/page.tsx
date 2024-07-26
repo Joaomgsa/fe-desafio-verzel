@@ -1,11 +1,10 @@
-import { Component } from "@/components/component";
-import MenuHeader from "@/components/home/header";
-import Image from "next/image";
+
+import Carros from "./carros/page";
 
 export default function Home() {
   return (
     <>
-    <Component/>
+    <Carros />
     </>
   );
 }

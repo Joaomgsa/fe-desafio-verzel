@@ -1,0 +1,22 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .carList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px; 
+      list-style: none;
+      padding: 0;
+    }
+    
+    .carListItem {
+      flex: 1 1 calc(33.333% - 16px); 
+      box-sizing: border-box;
+    }

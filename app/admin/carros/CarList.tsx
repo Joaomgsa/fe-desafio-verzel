@@ -1,6 +1,6 @@
 import React from 'react';
-import CarCard from './CarCard';
-import styles from '../car/css/CarCatalog.module.css';
+import styles from '../../../components/car/css/CarList.module.css';
+import CarListLine from '@/components/car/CarListLine';
 
 interface Car {
   name: string;
@@ -8,28 +8,26 @@ interface Car {
   year: number;
   price: number;
   imgUrl: string;
-  description: string;
 }
 
 interface CarListSectionProps {
   data: Car[];
 }
 
-const CarCatalog: React.FC<CarListSectionProps> = ({ data }) => {
+const CarList: React.FC<CarListSectionProps> = ({ data }) => {
   return (
     <section>
       <div className={styles.container}>
-        <h1>Escolha Seu próximo carro aqui</h1>
+        <h1>Administração de Carros</h1>
         <ul className={styles.carList}>
           {data.map((carro, index) => (
             <li key={carro.name} className={styles.carListItem}>
-              <CarCard
+              <CarListLine
                 name={carro.name}
                 brand={carro.brand}
                 year={carro.year}
                 price={carro.price}
                 imgUrl={carro.imgUrl}
-                description={carro.description}
               />
             </li>
           ))}
@@ -39,4 +37,4 @@ const CarCatalog: React.FC<CarListSectionProps> = ({ data }) => {
   );
 };
 
-export default CarCatalog;
+export default CarList;
