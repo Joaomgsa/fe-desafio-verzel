@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CarIcon, MenuIcon } from "lucide-react";
 import NavLinks from "./Navlinks";
+import UserInfo from "../user/userInfo";
 
 export default function MenuHeader() {
     const [user, setUser] = useState(null);
@@ -21,9 +22,9 @@ export default function MenuHeader() {
                     });
                     if (response.ok) {
                         const userData = await response.json();
-                        setUser(userData.username);
+                        setUser(userData);
                     } else {
-                        console.log(response);
+                        console.log(response, 'token:'+token);
                         console.error('Failed to fetch user data');
                     }
                 } catch (error) {
@@ -35,6 +36,12 @@ export default function MenuHeader() {
         fetchUser();
     }, []);
 
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        setUser(null);
+        window.location.href = '/carros';
+    }
+
     return (
         <>
             <header className="bg-primary text-primary-foreground py-4 px-6 flex items-center justify-between">
@@ -43,12 +50,7 @@ export default function MenuHeader() {
                     Verzel
                 </Link>
                 <NavLinks />
-                {user && (
-                    <div className="flex items-center gap-2">
-                        <span>Bem-vindo, {user.name}</span>
-                        <img src={user.avatar} alt="Avatar" className="w-8 h-8 rounded-full" />
-                    </div>
-                )}
+                {user && <UserInfo user={user} onLogout={handleLogout} />}
                 <Button variant="outline" size="icon" className="md:hidden" aria-label="Toggle Menu">
                     <MenuIcon className="w-6 h-6" />
                     <span className="sr-only">Toggle Menu</span>

@@ -1,7 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import CarList from './CarList';
+import CarList from '../../../components/car/CarList';
+
+
+const isAuthenticated = () => {
+  const token = localStorage.getItem('token');
+  return !!token; 
+};
 
 async function getCarrosData() {
   try {
@@ -23,6 +29,7 @@ async function getCarrosData() {
 }
 
 export default function Carros() {
+
   const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     async function fetchData() {

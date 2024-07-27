@@ -9,8 +9,8 @@ export default function Home() {
   );
 }
 
-/* TODO:  -  Login
-          - Ajustar retorno do usuario
+/* TODO:  -  Login - Feito
+          - Ajustar retorno do usuario - 
           - Ajustar métodos crud
           - Criar documento de instalação
 */
