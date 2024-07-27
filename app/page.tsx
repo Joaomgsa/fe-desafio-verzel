@@ -9,5 +9,9 @@ export default function Home() {
   );
 }
 
-
+/* TODO:  -  Login
+          - Ajustar retorno do usuario
+          - Ajustar métodos crud
+          - Criar documento de instalação
+*/
 

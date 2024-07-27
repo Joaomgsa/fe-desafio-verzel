@@ -5,7 +5,6 @@ const NavLinks = () => {
   const links = [
     { href: '/carros', label: 'Carros' },
     { href: '/login', label: 'Login' },
-    { href: '/admin/carros', label: 'Admin' },
     { href: 'https://github.com/Joaomgsa', label: 'Sobre' },
   ];
 

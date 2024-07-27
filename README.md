@@ -45,12 +45,12 @@ Frontend: Criado com React.
 Funcionalidades:
 - [ ] Página inicial pública exibindo a vitrine de veículos (ordenados por valor).
     - [ ] Cadastro de veículos com autenticação JWT para administradores.
-    - [ ] Listagem, criação, edição e exclusão de registros de veículos.
+    - [X] Listagem, criação, edição e exclusão de registros de veículos.
 1. Configuração do Ambiente de Desenvolvimento
-    - [ ] Instalar as ferramentas necessárias para o desenvolvimento do frontend e do backend.
-    - [ ] Criar um projeto React para o frontend e um projeto Spring Boot para o backend.
-    - [ ] Configurar o banco de dados escolhido para o projeto.
-    - [ ] Configurar o sistema de controle de versão Git para os projetos frontend e backend.
+    - [X] Instalar as ferramentas necessárias para o desenvolvimento do frontend e do backend.
+    - [X] Criar um projeto React para o frontend e um projeto Spring Boot para o backend.
+    - [X] Configurar o banco de dados escolhido para o projeto.
+    - [X] Configurar o sistema de controle de versão Git para os projetos frontend e backend.
 2. Desenvolvimento do Frontend
     - [ ] Criar os componentes React para a página inicial e para o cadastro de veículos.
     - [ ] Implementar a lógica para ordenar os veículos por valor na página inicial.
