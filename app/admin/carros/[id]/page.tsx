@@ -141,7 +141,19 @@ const EditCarPage: React.FC =() => {
           />
         </label>
       </div>
-      <button type="submit" className="form-button">Atualizar</button>
+      <div className="form-group">
+        <label>
+          Preço R$:
+          <input
+            type="number"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </label>
+      </div>
+      <button type="submit" className="form-button" onSubmit={handleSubmit}>Atualizar</button>
     </form>
   </div>
   );
