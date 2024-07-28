@@ -9,32 +9,39 @@ import UserInfo from "../user/userInfo";
 
 export default function MenuHeader() {
     const [user, setUser] = useState(null);
+    const [isClient, setIsClient] = useState(false);
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                try {
-                    const response = await fetch('http://localhost:8080/users/me', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`,
-                        },
-                    });
-                    if (response.ok) {
-                        const userData = await response.json();
-                        setUser(userData);
-                    } else {
-                        console.log(response, 'token:'+token);
-                        console.error('Failed to fetch user data');
-                    }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
-                }
-            }
-        };
-
-        fetchUser();
+    useEffect(
+        () => {
+        setIsClient(true);
     }, []);
+        
+    useEffect(() => {
+        if (isClient) {
+            const fetchUser = async () => {
+                const token = localStorage.getItem('token');
+                if (token) {
+                    try {
+                        const response = await fetch('http://localhost:8080/users/me', {
+                            headers: {
+                                'Authorization': `Bearer ${token}`,
+                            },
+                        });
+                        if (response.ok) {
+                            const userData = await response.json();
+                            setUser(userData);
+                            console.log('guardei o token' + token);
+                        } else {
+                            console.error('Failed to fetch user data');
+                        }
+                    } catch (error) {
+                        console.error('Error fetching user data:', error);
+                    }
+                }
+            };
+            fetchUser();
+        }
+    }, [isClient]);
 
     const handleLogout = () => {
         localStorage.removeItem('token');

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import styles from '../../components/car/css/CarList.module.css';
+import React, { useEffect, useState } from 'react';
+import styles from '../../components/car/css/CarListAdmin.module.css';
 import CarListLine from '../../components/car/CarListLine';
 
 interface Car {
@@ -16,29 +16,33 @@ interface CarListSectionProps {
 }
 
 const isAuthenticated = () => {
-  const token = localStorage.getItem('token');
-  return !!token; // Retorna true se o token existir, caso contrário, false
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('token');
+    return !!token; 
+  }
+  return false;
 };
 
+
 const CarList: React.FC<CarListSectionProps> = ({ data }) => {
-  
+  const [isAuth, setIsAuth] = useState(false);
+
   useEffect(() => {
-    if (!isAuthenticated()) {
-      window.location.href = '/login'; 
-    }
+    setIsAuth(isAuthenticated());
   }, []);
 
-  if (!isAuthenticated()) {
-    return null; 
+
+  if (!isAuth) {
+    return <div className={styles.centered}><p>Você não está autenticado.</p></div>;
   }
-  
+
   return (
     <section>
       <div className={styles.container}>
-        <h1>Administração de Carros</h1>
+        <h1>Lista de Carros</h1>
         <ul className={styles.carList}>
           {data.map((carro) => (
-            <li key={carro.name} className={styles.carListItem}>
+            <li key={carro.id} className={styles.carListItem}>
               <CarListLine
                 id={carro.id}
                 name={carro.name}

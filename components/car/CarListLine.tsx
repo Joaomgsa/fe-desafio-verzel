@@ -17,6 +17,10 @@ const CarListLine: React.FC<CarListLineProps> = ({ id, name, brand, year, price,
     await deleteCarById(id);
     window.location.href = '/admin/carros';
   };
+
+  const handleEdit = () => {
+    window.location.href = `/admin/carros/${id}`;
+  }
   
   return (
     <div className={styles.carCard}>
@@ -26,7 +30,7 @@ const CarListLine: React.FC<CarListLineProps> = ({ id, name, brand, year, price,
         <p>Marca: {brand}</p>
         <p>Ano: {year}</p>
         <p>Preço: R$ {price}</p>
-        <button className={styles.editButton}>Editar</button>
+        <button className={styles.editButton} onClick={handleEdit}>Editar</button>
         <button className={styles.deleteButton} onClick={handleDelete}>Excluir</button>
       </div>
 

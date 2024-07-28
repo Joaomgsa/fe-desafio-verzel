@@ -10,8 +10,8 @@ export default function Home() {
 }
 
 /* TODO:  -  Login - Feito
-          - Ajustar retorno do usuario - 
-          - Ajustar métodos crud
+          - Ajustar retorno do usuario - Feito
+          - Ajustar métodos crud - Create - READ Ok - UPDATE - DELETE OK 
           - Criar documento de instalação
 */
 

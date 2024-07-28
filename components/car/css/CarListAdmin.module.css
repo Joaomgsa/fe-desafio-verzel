@@ -26,6 +26,8 @@
 .carListItem {
   flex: 1 1 calc(33.333% - 20px);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
@@ -80,4 +82,12 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
 }

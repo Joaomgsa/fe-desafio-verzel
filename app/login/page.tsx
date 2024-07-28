@@ -1,14 +1,19 @@
 'use client';
 
 import { useFormState, useFormStatus } from 'react-dom';
-import { authenticate } from '../lib/actions';
 import styles from '../login/css/LoginForm.module.css';
 import { useState } from 'react';
 
-function authenticateWrapper(state: string | null | undefined, payload: string): Promise<string | null> {
-  const [username, password] = payload.split(':');
-  return authenticate(username, password);
-}
+
+
+const isAuthenticated = () => {
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('token');
+    return !!token; 
+  }
+  return false;
+};
+
 
 export default function Page() {
   const [errorMessage, setErrorMessage] = useState('');
