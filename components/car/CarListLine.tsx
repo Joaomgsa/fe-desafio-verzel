@@ -21,17 +21,21 @@ const CarListLine: React.FC<CarListLineProps> = ({ id, name, brand, year, price,
   const handleEdit = () => {
     window.location.href = `/admin/carros/${id}`;
   }
-  
+
   return (
     <div className={styles.carCard}>
+      <Image src={imgUrl} alt={name} width={120} height={120} />
       <div className={styles.detailsContainer}>
-        <Image src={imgUrl} alt={name} width={80} height={80} />
-        <h3>{name}</h3>
-        <p>Marca: {brand}</p>
-        <p>Ano: {year}</p>
-        <p>Preço: R$ {price}</p>
-        <button className={styles.editButton} onClick={handleEdit}>Editar</button>
-        <button className={styles.deleteButton} onClick={handleDelete}>Excluir</button>
+        <div className={styles.infoContainer}>
+          <h3>{name}</h3>
+          <p>Marca: {brand}</p>
+          <p>Ano: {year}</p>
+          <p>Preço: R$ {price}</p>
+        </div>
+        <div className={styles.buttonContainer}>
+          <button className={styles.editButton} onClick={handleEdit}>Editar</button>
+          <button className={styles.deleteButton} onClick={handleDelete}>Excluir</button>
+        </div>
       </div>
 
     </div>

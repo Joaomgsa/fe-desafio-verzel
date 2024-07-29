@@ -16,7 +16,7 @@ async function getCarrosData() {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
     const data = await res.json();
-    console.log(data.content);
+    
     return data;
   } catch (error) {
     if (error instanceof TypeError) {

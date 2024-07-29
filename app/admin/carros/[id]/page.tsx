@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import styles from './CarEditForm.module.css';
+import styles from './EditCarPage.module.css';
 import { useFormStatus } from 'react-dom';
 
 
@@ -74,15 +74,22 @@ const EditCarPage: React.FC = () => {
                 body: requestBody,
             });
 
+            console.log(response.status)
+
             if (!response.ok) {
-                console.log('corpo da requisicao' + JSON.stringify(response.body));
+                if (response.status >= 400) {
+                    window.location.href = '/login';
+                }
                 throw new Error('Envio falhou.');
             }
 
-            const data = await response.json();
+            if(response.ok){
 
+                window.location.href = '/admin/carros';
+            }
+            
         } catch (error) {
-            console.log('Login falhou. Verifique suas credenciais', error);
+            console.error('Login falhou. Verifique suas credenciais', error);
         }
     };
 
@@ -91,9 +98,10 @@ const EditCarPage: React.FC = () => {
     }
 
     return (
-        <div className="form-group">
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="form-group">
+        <div className={styles.container}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <h1>Editar Carro</h1>
+                <div className={styles.group}>
                     <label>
                         Cod. Carro: </label>
                     <input
@@ -101,11 +109,11 @@ const EditCarPage: React.FC = () => {
                         name="id"
                         value={formData.id}
                         onChange={handleChange}
-                        className="form-input"
-                        hidden
+                        className={styles.input}
+                        disabled
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.group}>
                     <label>
                         Nome:</label>
                     <input
@@ -113,21 +121,21 @@ const EditCarPage: React.FC = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="form-input"
+                        className={styles.input}
+
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.group}>
                     <label>
                         Modelo: </label>
                     <input
                         type="text"
                         name="brand"
                         value={formData.brand}
-                        onChange={handleChange}
-                        className="form-input"
+                        className={styles.input}
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.group}>
                     <label>
                         Descrição:</label>
                     <input
@@ -135,10 +143,10 @@ const EditCarPage: React.FC = () => {
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
-                        className="form-input"
+                        className={styles.input}
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.group}>
                     <label>
                         Link Imagem:</label>
                     <input
@@ -146,11 +154,11 @@ const EditCarPage: React.FC = () => {
                         name="imgUrl"
                         value={formData.imgUrl}
                         onChange={handleChange}
-                        className="form-input"
+                        className={styles.input}
                     />
 
                 </div>
-                <div className="form-group">
+                <div className={styles.group}>
                     <label>
                         Ano:</label>
                     <input
@@ -158,19 +166,19 @@ const EditCarPage: React.FC = () => {
                         name="year"
                         value={formData.year}
                         onChange={handleChange}
-                        className="form-input"
+                        className={styles.input}
                     />
 
                 </div>
-                <div className="form-group">
-                    <label>
+                <div className={styles.group}>
+                    <label className={styles.label}>
                         Preço R$:</label>
                     <input
                         type="number"
                         name="price"
                         value={formData.price}
                         onChange={handleChange}
-                        className="form-input"
+                        className={styles.input}
                     />
                 </div>
                 <UpdateButton />
@@ -183,6 +191,6 @@ export default EditCarPage;
 
 function UpdateButton() {
     const { pending } = useFormStatus();
-    console.log('Form:' + useFormStatus().data);
     return <button type="submit" disabled={pending} className={styles.input}>Atualizar</button>;
 }
+

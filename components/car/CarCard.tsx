@@ -11,6 +11,7 @@ interface CarCardProps {
   description: string;
 }
 
+
 const CarCard: React.FC<CarCardProps> = ({ name, brand, year, price, imgUrl, description }) => {
   return (
     <div className={styles.carCard}>
@@ -20,7 +21,6 @@ const CarCard: React.FC<CarCardProps> = ({ name, brand, year, price, imgUrl, des
       <p>Ano: {year}</p>
       <p>Preço: R$ {price}</p>
       <p>Descrição: {description}</p>
-      <button className={styles.editButton}>Editar</button>
     </div>
   );
 };

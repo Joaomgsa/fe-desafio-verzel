@@ -1,5 +1,6 @@
 .container {
   padding: 20px;
+  margin-bottom: 100px;
 }
 
 .carCard {
@@ -48,6 +49,7 @@
   align-items: center;
   gap: 10px; 
   width: 100%;
+
 }
 
 .detailsContainer p {
@@ -90,4 +92,31 @@
   align-items: center;
   height: 100vh; 
   text-align: center;
+}
+
+.addButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px; 
+  align-items: flex-end;
+}
+
+.addButton:hover {
+  background-color: #0056b3;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end; 
+  margin-bottom: 20px; 
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 20px; 
 }

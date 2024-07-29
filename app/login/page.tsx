@@ -38,7 +38,14 @@ export default function Page() {
       }
 
       const data = await response.json();
+
+  
       localStorage.setItem('token', data.token); 
+
+      if (data.token || data.token =='' || data.token == undefined) {
+        window.location.href = '/login';
+      }
+
       window.location.href = '/admin/carros';
     } catch (error) {
       setErrorMessage('Login falhou. Verifique suas credenciais');

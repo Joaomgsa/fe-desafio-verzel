@@ -1,14 +1,18 @@
+'use client';
+
 import CarForm from '@/components/car/CarForm';
 import React from 'react';
 
 
-const CreateCarPage: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <div>
-      <h1>Criar Novo Carro</h1>
+      <div>
+      
+      </div>
       <CarForm />
     </div>
   );
 };
 
-export default CreateCarPage;
+export default Page;

@@ -24,6 +24,10 @@ const isAuthenticated = () => {
 };
 
 
+const handleCreateCar = () => {
+window.location.href='carros/criar'
+};
+
 const CarList: React.FC<CarListSectionProps> = ({ data }) => {
   const [isAuth, setIsAuth] = useState(false);
 
@@ -39,7 +43,12 @@ const CarList: React.FC<CarListSectionProps> = ({ data }) => {
   return (
     <section>
       <div className={styles.container}>
-        <h1>Lista de Carros</h1>
+        <div className={styles.textContainer}>
+          <h1>Administração de Carros</h1>
+        </div>
+        <div className={styles.buttonContainer}>
+          <button onClick={handleCreateCar} className={styles.addButton}>Adicionar Novo Carro</button>
+        </div>
         <ul className={styles.carList}>
           {data.map((carro) => (
             <li key={carro.id} className={styles.carListItem}>
