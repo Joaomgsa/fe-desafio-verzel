@@ -48,9 +48,8 @@ const CarForm: React.FC = () => {
     }
   );
 
-  console.log('RESPOSTA_REQUISICAO: '+JSON.stringify(response), 'BODY :' + JSON.stringify(carData), 'TOKEN: ' + token, 'HEADERS : ', JSON.stringify(response.headers));
     if (response.ok) {
-      alert('Carro criado com sucesso!');
+      window.location.href = '/admin/carros';
       setName('');
       setBrand('');
       setYear('');

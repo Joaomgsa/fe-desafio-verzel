@@ -1,4 +1,5 @@
- async function deleteCarById(carId: string) {
+
+export const deleteCarById = async (carId: string) =>{
   const token = localStorage.getItem('token');
   if (!token) {
     console.error('Token não encontrado');
@@ -22,6 +23,5 @@
   } catch (error) {
     console.error('Erro ao deletar o carro:', error);
   }
-};
+}
 
-export { deleteCarById };
