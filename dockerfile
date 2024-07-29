@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Construir a aplicação Next.js
-RUN npm run dev
+RUN npm run build
 
 # Expor a porta que a aplicação irá rodar
 EXPOSE 3000
